@@ -34,7 +34,9 @@ python train.py --bs 4 (batch size = 4) --epoch 200 (number of epochs = 200) --s
 After the above training is completed, modify `S1` to `S4` in `metadata_path` and `save_dir` in `train.py`, then run the same command again to train the classification model for Cirrhosis Detection (S1–S3 vs. S4).
 
 #### 4.3 Alternative: Use Pre-trained Models
-Alternatively, you can download the two pre-trained model zip files via the link below, place them in the `./trained_models/` path, and unzip them.
+Alternatively, you can download the two pre-trained model zip files via the following **Baidu Netdisk link**, then place them in the `./trained_models/` path and unzip them.  
+- Baidu Netdisk Link: https://pan.baidu.com/s/1ZD-c-vWxR85_3QTNXWefvA  
+- Extraction Code: 5ch3  
 
 
 ### 5. Model Testing
