@@ -18,7 +18,7 @@ conda install pandas==2.3.3 scikit-learn==1.7.2 scikit-image==0.25.2 SimpleITK==
 
 # Install remaining dependencies via pip (verified fixed versions)
 pip install tensorboardX==2.6.4
-pip3 install opencv-python==4.12.0
+pip3 install opencv-python==4.8.1.78 --force-reinstall
 pip3 install matplotlib==3.10.7
 pip3 install numpy==1.26.4 --force-reinstall
 ```
