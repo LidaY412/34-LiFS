@@ -8,7 +8,9 @@ values_clip = (-55, 145)
 data_dir = "./data/val/"
 save_dir = "./data/preprocessed_val/"
 
-for ID in os.listdir(data_dir):
+ids = os.listdir(data_dir)
+
+for ID in ids:
     os.makedirs(os.path.join(save_dir, ID), exist_ok=True)
     for mode in ['1', '2', '3', '4', '5', '6', '7']:
         file_path = os.path.join(data_dir, ID, f'raw data{mode}.nii.gz')
@@ -48,3 +50,7 @@ for ID in os.listdir(data_dir):
         NiiDataWrite(os.path.join(save_dir, ID, '{}_img.nii.gz'.format(mode)), img,
                      new_spacing, origin, direction)
 
+os.makedirs("./relevant_files/", exist_ok=True)
+with open("./relevant_files/val.txt", "w") as f:
+    for id in ids:
+        f.write(f"{id}\n")
