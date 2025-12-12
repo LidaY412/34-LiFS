@@ -14,8 +14,8 @@ from torch.optim.lr_scheduler import MultiStepLR
 from utils import calculate_all_metrics, plot_best_roc_curves
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--bs', type=int, default=16, help='batch size')
-parser.add_argument('--epoch', type=int, default=100, help='all_epochs')
+parser.add_argument('--bs', type=int, default=4, help='batch size')
+parser.add_argument('--epoch', type=int, default=200, help='all_epochs')
 parser.add_argument('--seed', type=int, default=42, help='random seed')
 args = parser.parse_args()  
 
