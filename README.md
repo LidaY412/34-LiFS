@@ -3,6 +3,7 @@
 ### 1. Download Data
 Download the training dataset `LiQA_training_data.zip` and validation dataset `LiQA_val.zip`, then unzip them.
 
+
 ### 2. Environment Setup
 We recommend installing dependencies via the following version-locked commands (all versions are verified and reproducible). Run the commands sequentially:
 ```bash
@@ -23,6 +24,7 @@ pip3 install matplotlib==3.10.7
 pip3 install numpy==1.26.4 --force-reinstall
 ```
 
+
 ### 3. Data Preprocessing
 1. Copy the unzipped `LiQA_training_data` and `LiQA_val` to the designated path and rename them. Refer to `./data/train_data.py` and `./data/val_data.py`, replace `SOURCE_ROOT` with the actual input data path. Then run the following commands to generate raw processed data:
    ```bash
@@ -33,18 +35,21 @@ pip3 install numpy==1.26.4 --force-reinstall
    cd ..
    ```
    The raw output data will be saved in `./data/train/` and `./data/val/`.
+
 2. Preprocess the training and validation datasets by running the following commands:
    ```bash
    python preprocessing_train.py
    python preprocessing_val.py
    ```
+
 3. The preprocessed training and validation datasets will be saved in `./data/preprocessed_train/` and `./data/preprocessed_val/` respectively.
+
 
 ### 4. Model Training
 #### 4.1 Train the Substantial Fibrosis Detection Model (S1 vs. S2–S4)
 Run the following command to train the classification model for Substantial Fibrosis Detection (S1 vs. S2–S4):
 ```bash
-python train.py --bs 4 --epoch 200 --seed 42
+python train.py
 ```
 
 #### 4.2 Train the Cirrhosis Detection Model (S1–S3 vs. S4)
@@ -55,23 +60,22 @@ Alternatively, you can download the two pre-trained model zip files via the foll
 - Baidu Netdisk Link: https://pan.baidu.com/s/1ZD-c-vWxR85_3QTNXWefvA
 - Extraction Code: 5ch3
 
+
 ### 5. Model Testing
 1. Prepare `val.txt` in the `relevant_files` folder (this file contains Case ID information).
    - If you use other test sets, refer to `./data/val_data.py` and `preprocessing_val.py` to process the test set, save it in a new folder, and prepare the corresponding `.txt` file.
+
 2. Ensure `data_dir` and `val_split_path` in `test.py` are correctly configured. If other test sets are used, further modify the output path (e.g., create a new `test_results` folder in `./results/` and update the path accordingly).
-3. Run the following three commands sequentially. They will output result files for the two tasks separately, as well as a combined result file for both tasks:
+
+3. Run the following command:
    ```bash
-   python test.py --task S4
-   python test.py --task S1
-   python pred_csv.py
+   python test.py
    ```
+
 4. Output results are saved in the `results` folder.
 
-### 6. Non-Contrast Subtask
-For the Non-Contrast Subtask, you only need to:
-1. Replace `train.py` with `train_noncontrast.py` and `test.py` with `test_noncontrast.py` in all training/testing commands;
-2. Modify the file paths in `pred_csv.py` to match the Non-Contrast Subtask output directories.
 
-The two pre-trained model zip files for the Non-Contrast Subtask can also be downloaded via the same Baidu Netdisk link provided above. After downloading, place the zip files in the `./noncontrast_trained_models/` directory and unzip them.
-- Baidu Netdisk Link: https://pan.baidu.com/s/1ZD-c-vWxR85_3QTNXWefvA
-- Extraction Code: 5ch3
+### 6. Non-Contrast Subtask
+For the Non-Contrast Subtask, you only need to replace `train.py` with `train_noncontrast.py` and `test.py` with `test_noncontrast.py` in all training/testing commands.
+
+The two pre-trained model zip files for the Non-Contrast Subtask can also be downloaded via the same Baidu Netdisk link provided above.
