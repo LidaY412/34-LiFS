@@ -56,7 +56,7 @@ python train.py
 After the above training is completed, modify `S1` to `S4` in `metadata_path` and `save_dir` in `train.py`, then run the same command again to train the classification model for Cirrhosis Detection (S1–S3 vs. S4).
 
 #### 4.3 Alternative: Use Pre-trained Models
-Alternatively, you can download the two pre-trained model zip files via the following **Baidu Netdisk link**, then place them in the `./trained_models/` path and unzip them.
+Alternatively, you can download the two pre-trained model zip files via the following **Baidu Netdisk link**.
 - Baidu Netdisk Link: https://pan.baidu.com/s/1ZD-c-vWxR85_3QTNXWefvA
 - Extraction Code: 5ch3
 
@@ -77,5 +77,3 @@ Alternatively, you can download the two pre-trained model zip files via the foll
 
 ### 6. Non-Contrast Subtask
 For the Non-Contrast Subtask, you only need to replace `train.py` with `train_noncontrast.py` and `test.py` with `test_noncontrast.py` in all training/testing commands.
-
-The two pre-trained model zip files for the Non-Contrast Subtask can also be downloaded via the same Baidu Netdisk link provided above.
