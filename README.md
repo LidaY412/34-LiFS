@@ -14,6 +14,10 @@ conda activate 34lifs
 # Install PyTorch, CUDA, and related packages via conda (fixed version)
 conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.8 -c pytorch -c nvidia -y
 
+conda config --add channels pytorch
+conda config --add channels conda-forge
+conda config --add channels nvidia
+conda config --add channels defaults
 # Install data processing & image-related packages via conda (verified fixed versions)
 conda install pandas==2.3.3 scikit-learn==1.7.2 scikit-image==0.25.2 SimpleITK==2.2.1 -y
 
